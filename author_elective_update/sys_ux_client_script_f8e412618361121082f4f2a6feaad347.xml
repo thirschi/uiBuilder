@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes>58d17acf0b531010a8b1c96237673a68</includes>
+        <macroponent display_value="Simple List">68e412618361121082f4f2a6feaad337</macroponent>
+        <name>Open record from simple list page</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[function handler({
+    api,
+    helpers,
+    event,
+    imports
+}) {
+    const {
+        routeMapping,
+        buildDefaultRoutePayload
+    } = imports["global.recordRoutesMapping"]();
+
+    var route = 'record';
+    var targetRoute = api.context.props.subNavRoute;
+    const defaultRoutePayload = buildDefaultRoutePayload(route, targetRoute, event);
+
+    const routeMap = api.data.dynamic_routing_simplelist.routeMap;
+    const payload = routeMapping(routeMap, defaultRoutePayload, event);
+
+    // If a table name passed into trueupTable matches the existing table
+    // refresh trueup DR to get real table name; otherwise use existing.
+    if(api.state.routeParentTables && api.state.routeParentTables.split(',').find(table => table === payload.fields.table)) {
+        api.setState('navigationPayload', payload); 
+        api.data.resolve_route_parent_tables.refresh(); 
+    } else { 
+        api.emit('NAV_ITEM_SELECTED', payload); 
+    } 
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-29 16:54:24</sys_created_on>
+        <sys_id>f8e412618361121082f4f2a6feaad347</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Open record from simple list page</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_ux_client_script_f8e412618361121082f4f2a6feaad347</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 16:54:24</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>3f87dc1a1b498a54c82acb7b234bcb19</instance_id>
+        <instance_name>dev247847</instance_name>
+        <name>sys_ux_client_script_f8e412618361121082f4f2a6feaad347</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes&gt;58d17acf0b531010a8b1c96237673a68&lt;/includes&gt;&lt;macroponent display_value="Simple List"&gt;68e412618361121082f4f2a6feaad337&lt;/macroponent&gt;&lt;name&gt;Open record from simple list page&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[function handler({
+    api,
+    helpers,
+    event,
+    imports
+}) {
+    const {
+        routeMapping,
+        buildDefaultRoutePayload
+    } = imports["global.recordRoutesMapping"]();
+
+    var route = 'record';
+    var targetRoute = api.context.props.subNavRoute;
+    const defaultRoutePayload = buildDefaultRoutePayload(route, targetRoute, event);
+
+    const routeMap = api.data.dynamic_routing_simplelist.routeMap;
+    const payload = routeMapping(routeMap, defaultRoutePayload, event);
+
+    // If a table name passed into trueupTable matches the existing table
+    // refresh trueup DR to get real table name; otherwise use existing.
+    if(api.state.routeParentTables &amp;&amp; api.state.routeParentTables.split(',').find(table =&gt; table === payload.fields.table)) {
+        api.setState('navigationPayload', payload); 
+        api.data.resolve_route_parent_tables.refresh(); 
+    } else { 
+        api.emit('NAV_ITEM_SELECTED', payload); 
+    } 
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2024-10-29 16:54:24&lt;/sys_created_on&gt;&lt;sys_id&gt;f8e412618361121082f4f2a6feaad347&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Open record from simple list page&lt;/sys_name&gt;&lt;sys_package display_value="NeedIt" source="x_58872_needit"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="NeedIt"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_f8e412618361121082f4f2a6feaad347&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2024-10-29 16:54:24&lt;/sys_updated_on&gt;&lt;target&gt;macroponent&lt;/target&gt;&lt;type&gt;default&lt;/type&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>342501109</payload_hash>
+        <record_name>Open record from simple list page</record_name>
+        <reverted_from/>
+        <source>e270d2a18321121082f4f2a6feaad340</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-29 16:54:24</sys_created_on>
+        <sys_id>f4e412618361121082f4f2a6feaad34a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>192d93332c10000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 16:54:24</sys_updated_on>
+        <type>UX Client Script</type>
+        <update_guid>f8e412613161121076064c22bcfddd49</update_guid>
+        <update_guid_history>f8e412613161121076064c22bcfddd49:342501109</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-29 17:08:36</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>00474b4e765345f8819bd017349a7910</sys_id>
+        <sys_metadata>f8e412618361121082f4f2a6feaad347</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Open record from simple list page</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_f8e412618361121082f4f2a6feaad347</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_f8e412618361121082f4f2a6feaad347">f4e412618361121082f4f2a6feaad34a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 17:08:36</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
